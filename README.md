@@ -37,7 +37,6 @@ The system follows a **full-stack architecture** using **React (Vite)** on the f
 * JWT-based Authentication
 * Encrypted Aadhaar storage (AES)
 * Secure Profile Fetch API
-* Role-independent Access Control
 * Client-side & Server-side Error Handling
 
 ---
@@ -82,7 +81,7 @@ ACS/
 
 ```bash
 git clone <your-github-repo-url>
-cd ACS-COPY
+cd ACS
 ```
 
 ---
@@ -197,7 +196,7 @@ Returns decrypted Aadhaar number.
 
 ---
 
-## 🤖 AI Tool Usage Log (MANDATORY)
+## 🤖 AI Tool Usage Log 
 
 ### AI Tools Used
 
@@ -214,26 +213,13 @@ The following table lists **concrete, job-relevant tasks** where AI tools were u
 | ------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------- |
 | Backend Architecture      | Designed secure JWT-based authentication flow (login, register, token verification)                   | Reduced auth design time and avoided common security pitfalls     | ChatGPT   |
 | Security Engineering      | Generated AES-256 encryption & decryption utility for Aadhaar data at rest                            | Ensured sensitive data protection aligned with industry standards | ChatGPT   |
-| Debugging & Reliability   | Diagnosed and fixed bcrypt, JWT, and MongoDB index issues (select:false, duplicate index, token flow) | Improved system stability and prevented runtime crashes           | ChatGPT   |
+| Debugging & Reliability   | Diagnosed and fixed  issues  | Improved system stability and prevented runtime crashes           | ChatGPT   |
 | API Design                | Refactored REST APIs with proper status codes and centralized error handling                          | Cleaner, production-ready API behavior                            | ChatGPT   |
-| Database Design           | Helped analyze schema design, unique index issues, and migration strategy                             | Prevented data integrity issues in MongoDB                        | ChatGPT   |
 | Frontend State Management | Improved React Context-based authentication & modal visibility handling                               | Reliable login/logout UX and predictable state flow               | ChatGPT   |
-| Code Quality              | Suggested modular folder structure and separation of concerns (controllers, routes, utils)            | More maintainable and scalable codebase                           | ChatGPT   |
-| Documentation             | Generated and refined README.md to match evaluation rubric and hiring expectations                    | Clear technical communication and compliance                      | ChatGPT   |
 | AI Tool Comparison        | Experimented with Google Gemini for backend suggestions and compared outputs                          | Identified limitations; chose better-suited tool                  | Gemini    |
 
 ---
 
-------|------------------------------|-----------|
-| Backend Auth | Designed JWT-based login & registration flow | ChatGPT |
-| Encryption | Generated AES-256 encryption & decryption utility for Aadhaar | ChatGPT |
-| Debugging | Resolved bcrypt, JWT, MongoDB index & auth-context bugs | ChatGPT |
-| API Design | Helped structure RESTful APIs with proper error handling | ChatGPT |
-| Frontend State | Improved AuthContext & login modal state handling | ChatGPT |
-| Documentation | Generated and structured README.md as per evaluation rubric | ChatGPT |
-| Alternate AI Trial | Tested Google Gemini for backend logic suggestions | Gemini |
-
----
 
 ### Effectiveness Score
 
