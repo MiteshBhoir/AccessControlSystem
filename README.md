@@ -211,7 +211,7 @@ The following table lists **concrete, job-relevant tasks** where AI tools were u
 
 | Category                  | AI-Assisted Task                                                                                      | Impact / Outcome                                                  | Tool Used |
 | ------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------- |
-| Backend Architecture      | Designed secure JWT-based authentication flow (login, register, token verification)                   | Reduced auth design time and avoided common security pitfalls     | ChatGPT   |
+| Backend Architecture      | Helped by improving my code to build robust authentication. (login, register, token verification)                   | Reduced auth design time and avoided common security pitfalls     | ChatGPT   |
 | Security Engineering      | Generated AES-256 encryption & decryption utility for Aadhaar data at rest                            | Ensured sensitive data protection aligned with industry standards | ChatGPT   |
 | Debugging & Reliability   | Diagnosed and fixed  issues  | Improved system stability and prevented runtime crashes           | ChatGPT   |
 | API Design                | Refactored REST APIs with proper status codes and centralized error handling                          | Cleaner, production-ready API behavior                            | ChatGPT   |
