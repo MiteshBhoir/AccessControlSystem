@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [password, setPassword] = useState("")
   const [aadhar, setAadhar] = useState("")
 
-   
+
 
   // 🔹 Fetch logged-in user
 
@@ -45,7 +45,14 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
 
-  //new
+  const resetAuthForm = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+    setAadhar("");
+    setState("login");
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     toast.success("Logged out successfully");
@@ -69,8 +76,10 @@ export const AuthProvider = ({ children }) => {
             if (state === "login") {
               localStorage.setItem("token", res.data.token)
               setShowLogin(false)
+              resetAuthForm();
               return "Login successful 🎉"
-            } else {
+            } else { 
+              resetAuthForm();
               setState("login")
               return "Registration successful. Please login"
             }
@@ -104,10 +113,10 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        showLogin,setShowLogin,
+        showLogin, setShowLogin,
         open, setOpen, menuRef, navigate, token, handleLogout,
         state, setState, name, setName, email, setEmail, password, setPassword, aadhar, setAadhar, LoginSubmitHandler,
-        fetchProfile
+        fetchProfile, resetAuthForm, setUser, user
       }}
     >
       {children}

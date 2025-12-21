@@ -4,17 +4,17 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true, 
+      required: true,
     },
 
     email: {
       type: String,
       required: true,
       unique: true,
-      lowercase: true, 
+      lowercase: true,
     },
 
-    // Encrypted Aadhar 
+    // Encrypted Aadhar
     aadhar: {
       type: String,
       required: true,
@@ -24,11 +24,16 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    aadharHash: {
+      type: String,
+      required: true,
+      unique: true,
+    },
 
     password: {
       type: String,
-      required: true, 
-    }
+      required: true,
+    },
   },
   {
     timestamps: true, // createdAt & updatedAt

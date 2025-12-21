@@ -1,19 +1,26 @@
-import crypto from 'crypto';
+import crypto from "crypto";
 
-const algorithm = 'aes-256-cbc';
-const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
+const algorithm = "aes-256-cbc";
+const key = Buffer.from(process.env.ENCRYPTION_KEY, "hex");
 
 export const encrypt = (text) => {
   const iv = crypto.randomBytes(16);
   const cipher = crypto.createCipheriv(algorithm, key, iv);
-  let encrypted = cipher.update(text, 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-  return { iv: iv.toString('hex'), content: encrypted };
+  let encrypted = cipher.update(text, "utf8", "hex");
+  encrypted += cipher.final("hex");
+  return { iv: iv.toString("hex"), content: encrypted };
 };
 
 export const decrypt = (content, iv) => {
-  const decipher = crypto.createDecipheriv(algorithm, key, Buffer.from(iv, 'hex'));
-  let decrypted = decipher.update(content, 'hex', 'utf8');
-  decrypted += decipher.final('utf8');
+  const decipher = crypto.createDecipheriv(
+    algorithm,
+    key,
+    Buffer.from(iv, "hex")
+  );
+  let decrypted = decipher.update(content, "hex", "utf8");
+  decrypted += decipher.final("utf8");
   return decrypted;
+};
+export const hashAadhar = (aadhar) => {
+  return crypto.createHash("sha256").update(aadhar).digest("hex");
 };

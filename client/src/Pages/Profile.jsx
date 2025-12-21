@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { User, Mail, Shield } from "lucide-react";
-import api from "../api/axios";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import  { useEffect} from "react";
+import { User, Mail, Shield } from "lucide-react";  
 import { useAuth } from "../context/AuthContext";
-const Profile = () => { 
-  const navigate = useNavigate();
-  const { fetchProfile, user,setUser } = useAuth()
+const Profile = () => {  
+  const { fetchProfile, user} = useAuth()
   // Fetch profile on load
   useEffect(() => { 
     fetchProfile();
