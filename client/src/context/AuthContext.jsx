@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-
+  
 
 
   const resetAuthForm = () => {
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
               setShowLogin(false)
               resetAuthForm();
               return "Login successful 🎉"
-            } else {
+            } else { 
               resetAuthForm();
               setState("login")
               return "Registration successful. Please login"
