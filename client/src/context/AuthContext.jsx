@@ -35,14 +35,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  // 🔹 Auto-login on refresh
-  useEffect(() => {
-    if (token) {
-      fetchUser();
-    } else {
-      setLoading(false);
-    }
-  }, [token]);
+
 
 
   const resetAuthForm = () => {
@@ -78,7 +71,7 @@ export const AuthProvider = ({ children }) => {
               setShowLogin(false)
               resetAuthForm();
               return "Login successful 🎉"
-            } else { 
+            } else {
               resetAuthForm();
               setState("login")
               return "Registration successful. Please login"
@@ -110,6 +103,14 @@ export const AuthProvider = ({ children }) => {
       toast.error("Failed to load profile.");
     }
   };
+  // 🔹 Auto-login on refresh
+  useEffect(() => {
+    if (token) {
+      fetchUser();
+    } else {
+      setLoading(false);
+    }
+  }, [token]);
   return (
     <AuthContext.Provider
       value={{
