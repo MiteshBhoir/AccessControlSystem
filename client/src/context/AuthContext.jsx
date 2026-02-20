@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import toast from "react-hot-toast";
 
-const AuthContext = createContext(null);
+const AppContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
 
@@ -11,8 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   //new
-  const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
+  const [open, setOpen] = useState(false); 
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [state, setState] = useState("login")
@@ -23,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
 
 
-  // 🔹 Fetch logged-in user
+  //  Fetch logged-in user
 
   const fetchUser = async () => {
     try {
@@ -52,6 +51,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/");
     setOpen(false);
   };
+
   const LoginSubmitHandler = async (e) => {
     e.preventDefault()
     const endpoint = state === "login" ? "/login" : "/register"
@@ -112,18 +112,18 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
   return (
-    <AuthContext.Provider
+    <AppContext.Provider
       value={{
         showLogin, setShowLogin,
-        open, setOpen, menuRef, navigate, token, handleLogout,
+        open, setOpen, navigate, token, handleLogout,
         state, setState, name, setName, email, setEmail, password, setPassword, aadhar, setAadhar, LoginSubmitHandler,
         fetchProfile, resetAuthForm, setUser, user
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </AppContext.Provider>
   );
 };
 
 // 🔹 Custom hook
-export const useAuth = () => useContext(AuthContext);
+export const useAppContext = () => useContext(AppContext);

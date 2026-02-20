@@ -4,46 +4,7 @@ import jwt from "jsonwebtoken";
 import { encrypt, decrypt, hashAadhar } from "../utils/encryption.js";
 
 // API to register user
-// export const registerUser = async (req, res) => {
-//   try {
-//     const { name, email, password, aadhar } = req.body;
-//     //check if all fields are available
-//     if (!name || !email || !password || !aadhar) {
-//       return res.status(400).json({ message: "All fields required" });
-//     }
-//     //validation aadhar length
-//     if (aadhar.length !== 12) {
-//       return res.status(400).json({ message: "Invalid Aadhar number" });
-//     }
 
-//     const userExists = await User.findOne({ email });
-//     if (userExists) {
-//       return res.status(400).json({ message: "User already exists" });
-//     }
-
-//     //HASHING PASSWORD
-//     const hashedPassword = await bcrypt.hash(password, 10);
-
-//     //ENCRYPTING AADHAR TO STORE IN DB
-//     const encryptedAadhar = encrypt(aadhar);
-//     const aadharExists=await User.findOne({encryptedAadhar});
-//     if(aadharExists){
-//       return res.status(400).json({ message: "Aadhar already exists" });
-//     }
-
-//     await User.create({
-//       name,
-//       email,
-//       password: hashedPassword,
-//       aadhar: encryptedAadhar.content,
-//       iv: encryptedAadhar.iv,
-//     });
-
-//     res.status(201).json({ message: "User Registered" });
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password, aadhar } = req.body;

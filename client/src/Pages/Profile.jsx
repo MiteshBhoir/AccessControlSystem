@@ -1,8 +1,8 @@
 import  { useEffect} from "react";
 import { User, Mail, Shield } from "lucide-react";  
-import { useAuth } from "../context/AuthContext";
+import { useAppContext } from "../context/AuthContext";
 const Profile = () => {  
-  const { fetchProfile, user} = useAuth()
+  const { fetchProfile, user} = useAppContext()
   // Fetch profile on load
   useEffect(() => { 
     fetchProfile();

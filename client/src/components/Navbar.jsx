@@ -1,21 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import toast from 'react-hot-toast';
-import { useAuth } from '../context/AuthContext';
-const Navbar = ({ setShowLogin }) => {
-  const { open, setOpen, menuRef, navigate, token, handleLogout } = useAuth(); 
-  
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+import { Link} from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; 
+import { useAppContext } from '../context/AuthContext';
+const Navbar = () => {
+  const { open, setOpen, menuRef, navigate, token, handleLogout,setShowLogin } = useAppContext(); 
 
   return (
     <nav className="bg-white border-b border-gray-300 shadow-sm relative z-50">
